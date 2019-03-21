@@ -4,8 +4,22 @@
   "description": "learn japanese for beginners",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "postinstall": "cd client && npm install",
+    "build": "cd client && npm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lauren Reilly",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "http": "0.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pg-promise": "^8.6.4"
+  }
 }
