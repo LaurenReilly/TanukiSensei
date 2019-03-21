@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db');
+var db = require('../database');
 
 
 //when user is logged in get their data from the database so it can be stored in state
