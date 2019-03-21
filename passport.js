@@ -2,7 +2,7 @@ let passport = require('passport');
 let LocalStrategy = require('passport-local').Strategy;
 
 var bcrypt = require('bcryptjs');
-var db = require('./database');
+var db = require('./database.js');
 
 
 // Strategies require what is known as a verify callback. The purpose of a verify callback is to find the user that possesses a set of credentials.
@@ -14,7 +14,7 @@ passport.use(new LocalStrategy(function (username, password, done) {
             if (!user) {
                 return done(null, false, { message: 'Incorrect username' });
             }
-            const passwordMatch = bcrypt.compareSync(password, user.password_hash)
+            const passwordMatch = bcrypt.compareSync(password, user.password)
             if (!passwordMatch) {
                 return done(null, false, { message: 'Incorrect password' });
             }
