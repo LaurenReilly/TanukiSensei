@@ -1,6 +1,3 @@
-//if heroku isn't running it use the environment variables   
-if(process.env.NODE_ENV !== 'production') require('dotenv').config();
-
 // Loading and initializing the library:
 const pgp = require('pg-promise')({});
 
@@ -16,8 +13,11 @@ module.exports = db;
 
 
 
+// //if heroku isn't running it use the environment variables   
+// if(process.env.NODE_ENV !== 'production') require('dotenv').config();
 
-
+// // Loading and initializing the library:
+// const pgp = require('pg-promise')({});
 
 // const cn = {
 //     host: process.env.DB_HOST,
