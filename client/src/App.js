@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Switch, Route, withRouter } from 'react-router-dom';
+
 import Login from './components/Login'
+import Rules from './components/Rules'
 import './App.css';
 
 class App extends Component {
@@ -7,10 +11,27 @@ class App extends Component {
     return (
       <div className="App">
        <h1>TEST</h1>
-       <Login/>
+       <p>{this.props.username}</p>
+       <p>{this.props.firstLesson}</p>
+       <p>{this.props.secondLesson}</p>
+       <p>{this.props.thirdLesson}</p>
+       <Switch>
+          <Route exact path="/" component={Login}/>
+          <Route path="/rules" component={Rules}/>
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+    username: state.username,
+    firstLesson: state.firstLesson,
+    secondLesson: state.secondLesson,
+    thirdLesson: state.thirdLesson,
+  }
+}
+
+
+export default withRouter(connect(mapStateToProps, null)(App));

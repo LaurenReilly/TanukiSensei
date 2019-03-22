@@ -15,9 +15,11 @@ class Login extends Component {
 
     async getProgress() {
         let response = await axios.get(`/update/progress/${this.state.username}`);
-        console.log(response.data);
-        //this is where I will call this.props.login from connectDispatchToProps to login with values for lessons and username
-        //probably re-route to another page
+        let obj = response.data
+        console.log(obj.firstlesson);
+        console.log(obj.username)
+        this.props.login(obj.username, obj.firstlesson, obj.secondlesson, obj.thirdlesson);
+        this.props.history.push('/rules');
     }
 
    //send username and password to database to check if user exists and password matches 
@@ -29,8 +31,7 @@ class Login extends Component {
       })
       .then((response) => {
         console.log(response);
-        this.props.login(this.state.username);
-        // this.getProgress();
+        this.getProgress();
       })
       .catch(function (error) {
         console.log(error);
@@ -106,12 +107,16 @@ class Login extends Component {
 let mapStateToProps = (state) => {
     return {
       username: state.username,
+      firstLesson: state.firstLesson,
+      secondLesson: state.secondLesson,
+      thirdLesson: state.thirdLesson
     }
   }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        login: (username) => dispatch({type: "LOGIN", username: username}),
+        login: (username,firstLesson, secondLesson, thirdLesson) => 
+        dispatch({type: "LOGIN", username: username, firstLesson: firstLesson, secondLesson: secondLesson, thirdLesson: thirdLesson}),
     }
 }
   
