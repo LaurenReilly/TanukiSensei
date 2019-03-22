@@ -4,6 +4,8 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Login from './components/Login'
 import Rules from './components/Rules'
+import Lesson from './components/Lesson'
+
 import './App.css';
 
 class App extends Component {
@@ -18,6 +20,7 @@ class App extends Component {
        <Switch>
           <Route exact path="/" component={Login}/>
           <Route path="/rules" component={Rules}/>
+          <Route path="/lesson" component={Lesson}/>
         </Switch>
       </div>
     );

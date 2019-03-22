@@ -29,7 +29,7 @@ router.post('/store', function (req, res, next) {
     let firstLesson = req.body.firstLesson;
     let secondLesson = req.body.secondLesson;
     let thirdLesson = req.body.thirdLesson;
-    db.one('UPDATE users(firstlesson, secondlesson, thirdlesson) SET($2, $3, $4) WHERE username = $1', [username, firstLesson, secondLesson, thirdLesson])
+    db.none('UPDATE users SET firstlesson = $2, secondlesson = $3, thirdlesson = $4 WHERE username = $1', [username, firstLesson, secondLesson, thirdLesson])
         .then(data => {
             res.json(data)
         })

@@ -5,6 +5,7 @@ class Rules extends Component {
         return (
             <div>
                 <h1>RULES</h1>
+                <button onClick={() => this.props.history.push('/lesson')}>Go to Lesson</button>
             </div>
         )
     }

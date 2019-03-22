@@ -1,8 +1,8 @@
 let initalState = {
     username: "",
-    firstLesson: "not started",
-    secondLesson: "not started",
-    thirdLesson: "not started",
+    firstLesson: 0,
+    secondLesson: 0,
+    thirdLesson: 0,
 }
 
 let reducer = (state = initalState, action) => {
@@ -15,12 +15,20 @@ let reducer = (state = initalState, action) => {
             secondLesson: secondLesson,
             thirdLesson: thirdLesson
         }
-    } else if (type === "UPDATE") {
+    } else if (type === "UPDATE_FIRST") {
         return {
             ...state,
-            firstLesson: firstLesson,
-            secondLesson: secondLesson,
-            thirdLesson: thirdLesson
+            firstLesson: state.firstLesson +1,
+        }
+    } else if (type === "UPDATE_SECOND") {
+        return {
+            ...state,
+            secondLesson: state.secondLesson +1,
+        }
+    } else if (type === "UPDATE_THIRD") {
+        return {
+            ...state,
+            thirdLesson: state.thirdLesson +1
         }
     } else {
         return state;
