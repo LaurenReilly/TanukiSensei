@@ -11,9 +11,9 @@ let reducer = (state = initalState, action) => {
         return {
             ...state,
             username: username,
-            firstLesson: firstLesson,
-            secondLesson: secondLesson,
-            thirdLesson: thirdLesson
+            // firstLesson: firstLesson,
+            // secondLesson: secondLesson,
+            // thirdLesson: thirdLesson
         }
     } else if (type === "UPDATE") {
         return {
