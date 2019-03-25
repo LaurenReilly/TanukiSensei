@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 // import Container from 'react-bootstrap/Container';
@@ -8,6 +9,12 @@ import tanuki from '../assets/Tanuki.png';
 
 class Header extends Component {
     render() {
+        let log;
+        if (this.props.username) {
+            log = <Logout/>
+        } else {
+            log = <Login/>
+        }
         return (
             <div className="mb-2">
                 <Navbar className="d-flex justify-content-between">
@@ -26,7 +33,13 @@ class Header extends Component {
     }
 }
 
-export default Header;
+let mapStateToProps = (state) => {
+    return {
+        username: state.username
+      }
+}
+
+export default connect(mapStateToProps, null)(Header);
 
 /* <Form.Group controlId="username">
                             <Form.Control type="text" aria-label="username" placeholder="Username"/>
