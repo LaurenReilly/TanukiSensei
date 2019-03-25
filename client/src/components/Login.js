@@ -39,6 +39,20 @@ class Login extends Component {
       });
     }
 
+    handleSubmitRegister = (e) => {
+        e.preventDefault();
+        axios.post('/authenticate/register', {
+            username: this.state.username,
+            password: this.state.password
+            })
+            .then( (response) => {
+            this.handleSubmitLogin(e);
+            })
+            .catch(function (error) {
+            console.log(error);
+            });
+        }
+
     //updating state with the input text as it changes
     handleChangeUser = (e) => {
         this.setState({...this.state, username: e.target.value})
@@ -49,13 +63,25 @@ class Login extends Component {
     }
 
     render() {
-        return (
-            <Form inline onSubmit={(e) => this.handleSubmitLogin(e)}>
-                <input aria-label="username" className="rounded" type="text" id="username" name="username" required onChange={(e) => this.handleChangeUser(e)} value={this.state.username} placeholder="Username"></input>
-                <input aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" onChange={(e) => this.handleChangePass(e)} value={this.state.password} required></input>
-                <input aria-label="login" className="rounded ml-1 login" type="submit" value="Login"></input>
-            </Form>
-        )
+        if (this.props.logForm === "login") {
+            return (
+                <Form inline onSubmit={(e) => this.handleSubmitLogin(e)}>
+                    <input aria-label="username" className="rounded" type="text" id="username" name="username" required onChange={(e) => this.handleChangeUser(e)} value={this.state.username} placeholder="Username"></input>
+                    <input aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" onChange={(e) => this.handleChangePass(e)} value={this.state.password} required></input>
+                    <input aria-label="login" className="rounded ml-1 login" type="submit" value="Login"></input>
+                </Form>
+            )
+        } else if (this.props.logForm === "register") {
+            return (
+                <Form onSubmit={(e) => this.handleSubmitRegister(e)}>
+                    <h2>Register Test</h2>
+                    <input aria-label="username" className="rounded" type="text" id="username" name="username" required onChange={(e) => this.handleChangeUser(e)} value={this.state.username} placeholder="Username"></input>
+                    <input aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" onChange={(e) => this.handleChangePass(e)} value={this.state.password} required></input>
+                    <input aria-label="login" className="rounded ml-1 login" type="submit" value="Login"></input>
+                </Form>
+            )
+        }
+
     }
 }
 

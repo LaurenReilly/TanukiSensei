@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
 // import Container from 'react-bootstrap/Container';
 import '../App.css';
 
+import Login from './Login';
+import Logout from './Logout';
 import tanuki from '../assets/Tanuki.png';
 
 class Header extends Component {
@@ -13,7 +14,7 @@ class Header extends Component {
         if (this.props.username) {
             log = <Logout/>
         } else {
-            log = <Login/>
+            log = <Login logForm="login"/>
         }
         return (
             <div className="mb-2">
@@ -22,11 +23,7 @@ class Header extends Component {
                         <img alt="tanuki" src={tanuki} width="40" height="40" className="d-inline-block align-top ml-3 mr-4"/>
                         <h2>Tanuki Sensei</h2>
                     </div>
-                    <Form inline>
-                        <input aria-label="username" className="rounded" type="text" id="username" name="username" required placeholder="Username"></input>
-                        <input aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" required></input>
-                        <input aria-label="login" className="rounded ml-1 login" type="submit" value="Login"></input>
-                    </Form>
+                    {log}
                 </Navbar>
             </div>
         )

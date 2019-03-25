@@ -30,6 +30,14 @@ let reducer = (state = initalState, action) => {
             ...state,
             thirdLesson: state.thirdLesson +1
         }
+    } else if (type === "LOG_OUT") {
+        return {
+            ...state,
+            username: "",
+            firstLesson: 0,
+            secondLesson: 0,
+            thirdLesson: 0,
+        }
     } else {
         return state;
     }

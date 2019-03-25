@@ -14,12 +14,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-       <h1 className="japanese">日本語</h1>
-       <p className="japanese">たぬき</p>
        <p>{this.props.username}</p>
        <p>{this.props.firstLesson}</p>
        <p>{this.props.secondLesson}</p>
        <p>{this.props.thirdLesson}</p>
+       <Login logForm="register"/>
        <Switch>
           <Route exact path="/" component={Login}/>
           <Route path="/rules" component={Rules}/>
