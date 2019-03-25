@@ -1,33 +1,44 @@
-.App {
-  text-align: center;
+:root {
+  --dark-pink: #D31941;
+  --light-pink: #FFC1CE;
+  --light-blue: #C1ECFF;
+  --dark-blue: #55A3FC;
+  --green: #7FC41F;
+  font-family: 'Varela Round', sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Varela Round', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.japanese {
+  font-family: 'Kosugi Maru', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar {
+  background-color: white;
+  box-shadow: 2px 2px 5px var(--light-blue);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1, h2, h3 {
+  color: var(--dark-blue);
+}
+
+.btn {
+  background-color: var(--green);
+  border: none;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background-color: var(--green);
+}
+
+input, input:hover, input:active {
+  background-color: white;
+  border: 3px solid var(--dark-blue);
+}
+
+.login {
+  color: var(--dark-blue);
 }
