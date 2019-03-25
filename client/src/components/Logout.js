@@ -19,9 +19,18 @@ class Logout extends Component {
 
     render() {
         return (
+            <div className="d-flex">
+                <p className="mr-2">{this.props.username}</p>
+                <input aria-label="logout" className="rounded ml-1 logout" type="button" onClick={(e) => this.handleClick(e)} value="Logout"></input>
+            </div>
 
-            <input aria-label="logout" className="rounded ml-1 logout" type="button" onClick={(e) => this.handleClick(e)} value="Logout"></input>
         )
+    }
+}
+
+let mapStateToProps = (state) => {
+    return {
+        username: state.username
     }
 }
 
@@ -31,4 +40,4 @@ let mapDispatchToProps = (dispatch) => {
     }
   }
 
-  export default connect(null, mapDispatchToProps)(withRouter(Logout));
+  export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Logout));

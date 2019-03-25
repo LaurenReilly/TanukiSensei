@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 
-import Login from './components/Login';
-import Rules from './components/Rules';
+import Landing from './components/Landing';
+import Home from './components/Home';
 import Lesson from './components/Lesson';
 import Header from './components/Header';
 
@@ -14,14 +14,9 @@ class App extends Component {
     return (
       <div className="App">
        <Header/>
-       <p>{this.props.username}</p>
-       <p>{this.props.firstLesson}</p>
-       <p>{this.props.secondLesson}</p>
-       <p>{this.props.thirdLesson}</p>
-       <Login logForm="register"/>
        <Switch>
-          <Route exact path="/" component={Login}/>
-          <Route path="/rules" component={Rules}/>
+          <Route exact path="/" component={Landing}/>
+          <Route path="/home" component={Home}/>
           <Route path="/lesson" component={Lesson}/>
         </Switch>
       </div>

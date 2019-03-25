@@ -1,9 +1,12 @@
 :root {
   --dark-pink: #D31941;
-  --light-pink: #FFC1CE;
-  --light-blue: #C1ECFF;
+  --light-pink: rgb(255, 193, 206);
+  --faded-pink: rgba(255, 193, 206, .25);
+  --light-blue: rgb(193, 236, 255);
+  --faded-blue: rgba(193, 236, 255, .25);
   --dark-blue: #55A3FC;
-  --green: #7FC41F;
+  --green: rgb(127, 196, 31);
+  --faded-green: rgba(127, 196, 31, .25);
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -20,7 +23,7 @@ body {
   box-shadow: 2px 2px 5px var(--light-blue);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, p, dl {
   color: var(--dark-blue);
 }
 
@@ -44,7 +47,7 @@ input, input:hover, input:active {
 }
 
 .register {
-  border: 5px solid var(--green);
+  background-color: var(--faded-green);
   border-radius: 5px;
   width: 30%;
 }
@@ -52,4 +55,12 @@ input, input:hover, input:active {
 .error {
   background-color: var(--light-pink);
   color: var(--dark-pink);
+}
+
+.description {
+  background-color: var(--faded-pink);
+}
+
+.sensei {
+  background-color: var(--faded-blue);
 }
