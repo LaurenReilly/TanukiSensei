@@ -10,7 +10,9 @@ class Login extends Component {
         super(props)
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            confirmPassword: "",
+            message: ""
         }
     }
 
@@ -41,17 +43,26 @@ class Login extends Component {
 
     handleSubmitRegister = (e) => {
         e.preventDefault();
-        axios.post('/authenticate/register', {
-            username: this.state.username,
-            password: this.state.password
-            })
-            .then( (response) => {
-            this.handleSubmitLogin(e);
-            })
-            .catch(function (error) {
-            console.log(error);
-            });
+        if (this.state.password !== this.state.confirmPassword) {
+            this.setState({...this.state, message: "Passwords must match!" });
+            return;
+        } else if (this.state.password === this.state.confirmPassword) {
+            this.setState({...this.state, message: "" });
+            axios.post('/authenticate/register', {
+                username: this.state.username,
+                password: this.state.password
+                })
+                .then( (response) => {
+                this.handleSubmitLogin(e);
+                })
+                .catch(function (error) {
+                console.log(error);
+                });
+        } else {
+            return
         }
+
+    }
 
     //updating state with the input text as it changes
     handleChangeUser = (e) => {
@@ -60,6 +71,10 @@ class Login extends Component {
 
     handleChangePass = (e) => {
         this.setState({...this.state, password: e.target.value })
+    }
+
+    handleChangeConfirmPass = (e) => {
+        this.setState({...this.state, confirmPassword: e.target.value })
     }
 
     render() {
@@ -73,15 +88,26 @@ class Login extends Component {
             )
         } else if (this.props.logForm === "register") {
             return (
-                <Form onSubmit={(e) => this.handleSubmitRegister(e)}>
-                    <h2>Register Test</h2>
-                    <input aria-label="username" className="rounded" type="text" id="username" name="username" required onChange={(e) => this.handleChangeUser(e)} value={this.state.username} placeholder="Username"></input>
-                    <input aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" onChange={(e) => this.handleChangePass(e)} value={this.state.password} required></input>
-                    <input aria-label="login" className="rounded ml-1 login" type="submit" value="Login"></input>
+                <Form onSubmit={(e) => this.handleSubmitRegister(e)} className="d-flex flex-column register m-auto p-4">
+                    <h4 className="text-center">NEW USER REGISTRATION:</h4>
+                    <label className="mx-1" htmlFor="newUsername">Username:</label>
+                    <input className="rounded" type="text" id="newUsername" name="username" required
+                        onChange={(e) => this.handleChangeUser(e)} 
+                        value={this.state.username}></input>
+                    <label className="mx-1 mt-3" htmlFor="newPassword">Password:</label>
+                    <input className="rounded" type="password" id="newPassword"  name="password" required
+                        onChange={(e) => this.handleChangePass(e)} 
+                        value={this.state.password}></input>
+                    <label className="mx-1 mt-3" htmlFor="confirmPassword">Confirm Password:</label>
+                    <input className="rounded" type="password" id="confirmPassword"  name="confirmPassword" required
+                        onChange={(e) => this.handleChangeConfirmPass(e)} value={this.state.confirmPassword} ></input>
+                    <p className="error rounded mt-1">{this.state.message}</p>
+                    <input className="rounded align-self-center mt-2" type="submit" value="Register"></input>
                 </Form>
             )
+        } else {
+            return null;
         }
-
     }
 }
 

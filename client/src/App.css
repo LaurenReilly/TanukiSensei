@@ -42,3 +42,14 @@ input, input:hover, input:active {
 .login {
   color: var(--dark-blue);
 }
+
+.register {
+  border: 5px solid var(--green);
+  border-radius: 5px;
+  width: 30%;
+}
+
+.error {
+  background-color: var(--light-pink);
+  color: var(--dark-pink);
+}

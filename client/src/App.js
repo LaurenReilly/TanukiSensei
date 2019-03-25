@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header/>
+       <Header/>
        <p>{this.props.username}</p>
        <p>{this.props.firstLesson}</p>
        <p>{this.props.secondLesson}</p>

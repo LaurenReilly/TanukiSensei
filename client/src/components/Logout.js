@@ -19,9 +19,8 @@ class Logout extends Component {
 
     render() {
         return (
-            <div className="mt-5 mb-1">
-                <input type="button" onClick={(e) => this.handleClick(e)} alt="Logout" title="Logout">Logout</input>
-            </div>
+
+            <input aria-label="logout" className="rounded ml-1 logout" type="button" onClick={(e) => this.handleClick(e)} value="Logout"></input>
         )
     }
 }
