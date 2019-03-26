@@ -3,10 +3,11 @@ let initalState = {
     firstLesson: 0,
     secondLesson: 0,
     thirdLesson: 0,
+    lesson: "",
 }
 
 let reducer = (state = initalState, action) => {
-    let {type, username, firstLesson, secondLesson, thirdLesson} = action;
+    let {type, username, firstLesson, secondLesson, thirdLesson, lesson} = action;
     if (type === "LOGIN") {
         return {
             ...state,
@@ -36,7 +37,12 @@ let reducer = (state = initalState, action) => {
             username: "",
             firstLesson: 0,
             secondLesson: 0,
-            thirdLesson: 0,
+            thirdLesson: 0
+        }
+    } else if (type === "LESSON_SELECT") {
+        return {
+            ...state,
+            lesson: lesson
         }
     } else {
         return state;

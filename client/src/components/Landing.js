@@ -26,7 +26,6 @@ class Landing extends Component {
                             <dt>They can't use computers</dt>
                             <dd className="ml-3">That means Sensei will never send you annoying emails!</dd>
                         </dl>
-                        
                     </div>
                 </div>
                 <div className="mt-4">

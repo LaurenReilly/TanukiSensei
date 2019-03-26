@@ -57,6 +57,9 @@ input, input:hover, input:active {
   color: var(--dark-pink);
 }
 
+/* .landing {
+} */
+
 .description {
   background-color: var(--faded-pink);
 }
