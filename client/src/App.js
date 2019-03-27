@@ -6,6 +6,7 @@ import Landing from './components/Landing';
 import Home from './components/Home';
 import Lesson from './components/Lesson';
 import Header from './components/Header';
+import Learn from './components/Learn';
 
 import './App.css';
 
@@ -17,6 +18,7 @@ class App extends Component {
        <Switch>
           <Route exact path="/" component={Landing}/>
           <Route path="/home" component={Home}/>
+          <Route path="/learn" component={Learn}/>
           <Route path="/lesson" component={Lesson}/>
         </Switch>
       </div>

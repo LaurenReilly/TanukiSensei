@@ -4,6 +4,13 @@ let initalState = {
     secondLesson: 0,
     thirdLesson: 0,
     lesson: "",
+    array: [],
+    complete: false,
+    questionsAnswered: 0,
+    currentWord: {},
+    userAnswer: "",
+    correct: "",
+    showCheck: true,
 }
 
 let reducer = (state = initalState, action) => {
@@ -39,7 +46,7 @@ let reducer = (state = initalState, action) => {
             secondLesson: 0,
             thirdLesson: 0
         }
-    } else if (type === "LESSON_SELECT") {
+    } else if (type === "LEARN") {
         return {
             ...state,
             lesson: lesson

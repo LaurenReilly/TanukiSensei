@@ -65,6 +65,8 @@ class Learn extends Component {
                     })}
                 </div>
             )
+        } else {
+            return null;
         }
     }
 }

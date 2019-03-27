@@ -25,7 +25,7 @@ let nouns = [
         romaji: "gohan"
     },
     {
-        hiragana: "",
+        hiragana: "くるま",
         english: "car",
         romaji: "kuruma"
     },
