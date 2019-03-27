@@ -16,24 +16,32 @@ class MenuItem extends Component {
           e.preventDefault();
           this.setState({ ...this.state, open: !this.state.open });
       }
-      
+      //give this array as well then in LEARN.js you can reference array in state instead of importing into doc
       handleLearn = (e, lesson) => {
           e.preventDefault();
           this.props.learn(lesson);
           this.props.history.push('/learn');
       }
+
+      handlePractice = (e, lesson, array) => {
+          e.preventDefault();
+          this.props.practice(lesson, array);
+          this.props.history.push('/practice');
+      }
+
       render() {
         const { open } = this.state;
+        const {title, lesson, score, array} = this.props;
         return (
           <div> 
-            <h3 onClick={(e) => this.handleClick(e)} aria-controls="example-collapse-text" aria-expanded={open}>
-              {this.props.title}
+            <h3 onClick={(e) => this.handleClick(e)} aria-controls="collapse-text" aria-expanded={open}>
+              {title}
             </h3>
-            <h4>{this.props.score}</h4>
-            <Collapse in={this.state.open}>
-              <div id="example-collapse-text">
-                <button onClick={(e) => this.handleLearn(e, this.props.lesson)}>Learn</button>
-                <button>Practice</button>
+            <h4>Most Recent Grade: {score * 10}%</h4>
+            <Collapse in={open}>
+              <div id="collapse-text">
+                <button onClick={(e) => this.handleLearn(e, lesson)}>Learn</button>
+                <button onClick={(e) => this.handlePractice(e, lesson, array)}>Practice</button>
               </div>
             </Collapse>
           </div>
@@ -51,7 +59,8 @@ class MenuItem extends Component {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-       learn: (lesson) => dispatch({type: "LEARN", lesson: lesson}) 
+       learn: (lesson) => dispatch({type: "LEARN", lesson: lesson}),
+       practice: (lesson, array) => dispatch({type: "PRACTICE", lesson: lesson, array: array})
     }
 }
 export default withRouter(connect(null, mapDispatchToProps)(MenuItem));

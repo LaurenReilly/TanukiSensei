@@ -4,7 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Landing from './components/Landing';
 import Home from './components/Home';
-import Lesson from './components/Lesson';
+import Practice from './components/Practice';
 import Header from './components/Header';
 import Learn from './components/Learn';
 
@@ -19,7 +19,7 @@ class App extends Component {
           <Route exact path="/" component={Landing}/>
           <Route path="/home" component={Home}/>
           <Route path="/learn" component={Learn}/>
-          <Route path="/lesson" component={Lesson}/>
+          <Route path="/practice" component={Practice}/>
         </Switch>
       </div>
     );

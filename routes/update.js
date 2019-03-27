@@ -14,6 +14,7 @@ router.get('/progress/:username', function (req,res,next) {
         db.one('SELECT * FROM users WHERE username = $1', [username])
             .then(function (data) {
                 //successful
+                console.log("got users information from DB");
                 res.json(data);
             })
             .catch(function (error) {
@@ -31,6 +32,7 @@ router.post('/store', function (req, res, next) {
     let thirdLesson = req.body.thirdLesson;
     db.none('UPDATE users SET firstlesson = $2, secondlesson = $3, thirdlesson = $4 WHERE username = $1', [username, firstLesson, secondLesson, thirdLesson])
         .then(data => {
+            console.log("updated users information in DB");
             res.json(data)
         })
         .catch(error => {

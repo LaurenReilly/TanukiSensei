@@ -9,8 +9,8 @@ class Next extends Component {
         e.preventDefault();
         let i =  Math.floor(Math.random() * (array.length));
         let word = array[i];
-        newArray = newArray.splice(i, 1);
-        this.next(word, newArray);
+        newArray.splice(i, 1);
+        this.props.next(word, newArray);
     }
 
     render() {
@@ -25,7 +25,7 @@ class Next extends Component {
 let mapStateToProps = (state) => {
     return {
         currentWord: state.currentWord,
-        array: state.array
+        array: state.array,
     }
 
 }

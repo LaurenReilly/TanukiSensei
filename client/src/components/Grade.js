@@ -7,11 +7,10 @@ class Grade extends Component {
     render() {
         let button;
         if (this.props.complete) {
-            button = <Complete />
+            button = <Complete score={this.props.score}/>
         } else if(!this.props.complete) {
             button = <Next />
         }
-        //don't use bool because empty will evaluate like false does
        if(this.props.correct === "correct") {
             return (
                 <div className="correct">

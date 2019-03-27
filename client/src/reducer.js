@@ -14,7 +14,7 @@ let initalState = {
 }
 
 let reducer = (state = initalState, action) => {
-    let {type, username, firstLesson, secondLesson, thirdLesson, lesson} = action;
+    let {type, username, firstLesson, secondLesson, thirdLesson, lesson, currentWord, array, grade, score} = action;
     if (type === "LOGIN") {
         return {
             ...state,
@@ -26,17 +26,17 @@ let reducer = (state = initalState, action) => {
     } else if (type === "UPDATE_FIRST") {
         return {
             ...state,
-            firstLesson: state.firstLesson +1,
+            firstLesson: score
         }
     } else if (type === "UPDATE_SECOND") {
         return {
             ...state,
-            secondLesson: state.secondLesson +1,
+            secondLesson: score
         }
     } else if (type === "UPDATE_THIRD") {
         return {
             ...state,
-            thirdLesson: state.thirdLesson +1
+            thirdLesson: score
         }
     } else if (type === "LOG_OUT") {
         return {
@@ -50,6 +50,43 @@ let reducer = (state = initalState, action) => {
         return {
             ...state,
             lesson: lesson
+        }
+    } else if (type === "PRACTICE") {
+        return {
+            ...state,
+            lesson: lesson,
+            array: array
+        }
+    } 
+    else if (type === "NEXT") {
+        return {
+            ...state,
+            currentWord: currentWord,
+            array: array,
+            showCheck: true,
+            correct: ""
+        }
+    } else if (type === "CHECK") {
+        return {
+            ...state, 
+            questionsAnswered: state.questionsAnswered +1,
+            showCheck: false,
+            correct: grade,
+        }
+    } else if (type === "COMPLETE") {
+        return {
+            ...state,
+            complete: true
+        }
+    } else if (type === "RESET") {
+        return {
+            ...state,
+            complete: false,
+            questionsAnswered: 0,
+            currentWord: {},
+            userAnswer: "",
+            correct: "",
+            showCheck: true,
         }
     } else {
         return state;

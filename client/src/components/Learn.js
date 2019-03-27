@@ -77,11 +77,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-//actually  need this on home page where you will choose which Learn page to render by using menu
-let mapDispatchToProps = (dispatch) => {
-    return {
-        lessonSelect: (lesson) => dispatch({type: "LESSON_SELECT", lesson: lesson})
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Learn);
+export default connect(mapStateToProps, null)(Learn);
