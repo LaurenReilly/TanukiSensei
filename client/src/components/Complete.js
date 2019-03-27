@@ -7,7 +7,17 @@ import axios from 'axios';
 class Complete extends Component {
 
     async updateProgress() {
-        let {username, firstLesson, secondLesson, thirdLesson} = this.props
+        let {username, firstLesson, secondLesson, thirdLesson, score, lesson} = this.props
+        if (lesson === "firstLesson") {
+            firstLesson = score;
+            this.props.updateFirst(score);
+        } else if (lesson === "secondLesson") {
+            secondLesson = score;
+            this.props.updateSecond(score);
+        } else if (lesson === "thirdLesson") {
+            thirdLesson = score;
+            this.props.updateThird(score);
+        }
         let response = await axios.post('/update/store', {username, firstLesson, secondLesson, thirdLesson})
         this.props.history.push('/home')
         console.log("updated progress" + response);
@@ -33,9 +43,18 @@ let mapStateToProps = (state) => {
       firstLesson: state.firstLesson,
       secondLesson: state.secondLesson,
       thirdLesson: state.thirdLesson,
-      lesson: state.lesson
+      lesson: state.lesson,
+      score: state.score
     }
   }
 
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateFirst: (score) => dispatch({type: "UPDATE_FIRST", score: score}),
+        updateSecond: (score) => dispatch({type: "UPDATE_SECOND", score: score}),
+        updateThird: (score) => dispatch({type: "UPDATE_THIRD", score: score})
+    }
+}
 
-export default withRouter(connect(mapStateToProps, null)(Complete));
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Complete));

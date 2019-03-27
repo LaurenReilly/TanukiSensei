@@ -11,6 +11,7 @@ let initalState = {
     userAnswer: "",
     correct: "",
     showCheck: true,
+    score: 0
 }
 
 let reducer = (state = initalState, action) => {
@@ -72,6 +73,7 @@ let reducer = (state = initalState, action) => {
             questionsAnswered: state.questionsAnswered +1,
             showCheck: false,
             correct: grade,
+            score: state.score + score
         }
     } else if (type === "COMPLETE") {
         return {

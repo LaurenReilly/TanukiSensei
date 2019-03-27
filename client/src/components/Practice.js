@@ -41,19 +41,6 @@ class Practice extends Component {
         }
     }
 
-    updateLesson() {
-        let { lesson } = this.props.lesson;
-        let { score } = this.state.score;
-        if (lesson === "firstLesson") {
-            this.updateFirst(score);
-        } else if (lesson === "secondLesson") {
-            this.updateSecond(score);
-        } else if (lesson === "thirdLesson") {
-            this.updateThird(score);
-        } else {
-            return;
-        }
-    }
     //handle case sensitivity, if correct change state to correct and set local answer back to empty string
     handleSubmit(e, english) {
         e.preventDefault();
@@ -62,11 +49,10 @@ class Practice extends Component {
         let answerCheck = answer.toUpperCase();
         let englishCheck = english.toUpperCase();
         if (answerCheck === englishCheck) {
-            this.setState({...this.state, score: this.state.score +1, answer: ""});
-            this.props.check("correct");
-            this.updateLesson();
+            this.setState({...this.state, answer: ""});
+            this.props.check("correct", 1);
         } else if (answerCheck !== englishCheck) {
-            this.props.check("wrong");
+            this.props.check("wrong", 0);
             this.setState({...this.state, answer: ""});
         } else {
             return;
@@ -88,8 +74,8 @@ class Practice extends Component {
         return (
             <div>
                 <h1>{hiragana}</h1>
-                <h4>{romaji}</h4>
-                <p>{this.state.score}</p>
+                {this.props.lesson === "firstLesson" ? null : <h4>{romaji}</h4>}
+                <p>{this.props.score}</p>
                 <Form onSubmit={(e) => this.handleSubmit(e, english)}>
                     <label htmlFor="answer">Enter English Translation</label>
                     <input aria-label="answer" className="rounded" type="text" id="answer" name="answer" required onChange={(e) => this.handleChange(e)} value={this.state.answer} placeholder="Enter English"></input>
@@ -109,7 +95,8 @@ let mapStateToProps = (state) => {
         questionsAnswered: state.questionsAnswered,
         answer: state.answer,
         correct: state.correct,
-        showCheck: state.showCheck
+        showCheck: state.showCheck,
+        score: state.score
     }
 
 }
@@ -121,9 +108,6 @@ let mapDispatchToProps = (dispatch) => {
         check: (grade, score) => dispatch({type: "CHECK", grade: grade, score: score}),
         complete: () => dispatch({type: "COMPLETE"}),
         reset: () => dispatch({type: "RESET"}),
-        updateFirst: (score) => dispatch({type: "UPDATE_FIRST"}),
-        updateSecond: (score) => dispatch({type: "UPDATE_SECOND"}),
-        updateThird: (score) => dispatch({type: "UPDATE_THIRD"}),
     }
 }
 

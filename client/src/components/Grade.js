@@ -21,7 +21,7 @@ class Grade extends Component {
         } else if (this.props.correct === "wrong") {
             return (
                 <div className="wrong">
-                    <p>The correct answer is: {this.props.currentWord.romaji}</p>
+                    <p>The correct answer is: {this.props.currentWord.english}</p>
                     {button}
                 </div>
             )
@@ -43,10 +43,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Grade);
+export default connect(mapStateToProps, null)(Grade);
