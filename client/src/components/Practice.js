@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { withRouter } from 'react-router-dom';
 
+import Button from 'react-bootstrap/Button';
+
 import Grade from './Grade';
 
 // import hiragana from '../assets/hiragana';
@@ -72,17 +74,17 @@ class Practice extends Component {
         let { hiragana, romaji, english} = this.props.currentWord;
         let check;
         if (this.props.showCheck) {
-            check = <input aria-label="check" className="rounded ml-1 check" type="submit" value="check"></input>
+            check = <Button aria-label="check" className="rounded ml-1 check" type="submit">Check</Button>
         } else {
             check = null;
         }
         return (
-            <div>
+            <div className="d-flex flex-column m-auto practice">
                 <h1>{hiragana}</h1>
                 {this.props.lesson === "firstLesson" ? null : <h4>{romaji}</h4>}
                 <p>{this.props.score}</p>
                 <Form onSubmit={(e) => this.handleSubmit(e, english)}>
-                    <label htmlFor="answer">Enter English Translation</label>
+                    <label htmlFor="answer">English Translation: </label>
                     <input aria-label="answer" className="rounded" type="text" id="answer" name="answer" required onChange={(e) => this.handleChange(e)} value={this.state.answer} placeholder="Enter English"></input>
                     {check}
                 </Form>

@@ -23,18 +23,25 @@ body {
   box-shadow: 2px 2px 5px var(--light-blue);
 }
 
-h1, h2, h3, h4, p, dl {
+.blueShadow {
+  box-shadow: 5px 5px 5px var(--light-blue);
+}
+
+h1, h2, h3, h4, h5, h6, p, dl {
   color: var(--dark-blue);
 }
 
 .btn {
-  background-color: var(--green);
-  border: none;
+  color: var(--dark-blue);
+  background-color: white;
+  border: 3px solid var(--dark-blue);
 }
 
 .btn:hover {
   transform: scale(1.05);
-  background-color: var(--green);
+  color: var(--dark-blue);
+  background-color: white;
+  border: 3px solid var(--dark-blue);
 }
 
 input, input:hover, input:active {
@@ -42,23 +49,38 @@ input, input:hover, input:active {
   border: 3px solid var(--dark-blue);
 }
 
+
 .login {
   color: var(--dark-blue);
 }
 
+
 .register {
   background-color: var(--faded-green);
   border-radius: 5px;
-  width: 30%;
+  width: 500px;
 }
 
-.error {
+.error, .wrong{
   background-color: var(--light-pink);
   color: var(--dark-pink);
 }
 
-/* .landing {
-} */
+.wrong p {
+  color: var(--dark-pink);
+}
+
+.correct {
+  background-color: var(--faded-green);
+}
+
+.correct p {
+  color: var(--green);
+}
+
+.practice {
+  width: 30%;
+}
 
 .description {
   background-color: var(--faded-pink);
@@ -68,10 +90,12 @@ input, input:hover, input:active {
   background-color: var(--faded-blue);
 }
 
-/* .wrong {
-
+.menu {
+  background-color: var(--faded-blue);
+  border: 5px solid var(--dark-blue);
+  width: 30%;
 }
 
-.correct {
-
-} */
+.menuDropdown {
+  background-color: var(--faded-green);
+}

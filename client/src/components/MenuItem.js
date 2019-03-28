@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
+import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -33,15 +34,15 @@ class MenuItem extends Component {
         const { open } = this.state;
         const {title, lesson, score, array} = this.props;
         return (
-          <div> 
-            <h3 onClick={(e) => this.handleClick(e)} aria-controls="collapse-text" aria-expanded={open}>
-              {title}
-            </h3>
-            <h4>Most Recent Grade: {score * 10}%</h4>
+          <div className="mb-5"> 
+            <div className="d-flex">
+              <h3 onClick={(e) => this.handleClick(e)} aria-controls="collapse-text" aria-expanded={open}>{title}</h3>
+              <p className="ml-2">Most Recent Grade: {score * 10}%</p>
+            </div>
             <Collapse in={open}>
-              <div id="collapse-text">
-                <button onClick={(e) => this.handleLearn(e, lesson)}>Learn</button>
-                <button onClick={(e) => this.handlePractice(e, lesson, array)}>Practice</button>
+              <div id="collapse-text" className="menuDropdown">
+                <Button className="mr-2" onClick={(e) => this.handleLearn(e, lesson)}>Learn</Button>
+                <Button onClick={(e) => this.handlePractice(e, lesson, array)}>Practice</Button>
               </div>
             </Collapse>
           </div>

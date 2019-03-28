@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 
@@ -31,7 +32,7 @@ class Complete extends Component {
     render() {
         return(
             <div>
-                <button onClick={(e) => this.handleClick(e)}>Complete Lesson</button>
+                <Button onClick={(e) => this.handleClick(e)}>Complete Lesson</Button>
             </div>
         )
     }

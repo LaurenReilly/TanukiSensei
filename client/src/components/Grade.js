@@ -13,14 +13,14 @@ class Grade extends Component {
         }
        if(this.props.correct === "correct") {
             return (
-                <div className="correct">
+                <div className="correct text-center rounded d-flex justify-content-around p-2">
                     <p>Correct!</p>
                     {button}
                 </div>
             )
         } else if (this.props.correct === "wrong") {
             return (
-                <div className="wrong">
+                <div className="wrong text-center rounded d-flex justify-content-around p-2">
                     <p>The correct answer is: {this.props.currentWord.english}</p>
                     {button}
                 </div>

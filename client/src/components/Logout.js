@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
 
 
@@ -19,9 +20,9 @@ class Logout extends Component {
 
     render() {
         return (
-            <div className="d-flex">
-                <p className="mr-2">{this.props.username}</p>
-                <input aria-label="logout" className="rounded ml-1 logout" type="button" onClick={(e) => this.handleClick(e)} value="Logout"></input>
+            <div className="d-flex align-items-center">
+                <p className="m-auto">{this.props.username}</p>
+                <Button aria-label="logout" className="rounded ml-2 logout" type="button" onClick={(e) => this.handleClick(e)} >Logout</Button>
             </div>
 
         )

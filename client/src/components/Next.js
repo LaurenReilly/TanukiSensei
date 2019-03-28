@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 
 class Next extends Component {
 
@@ -16,7 +17,7 @@ class Next extends Component {
     render() {
         return (
             <div>
-                <button onClick={(e) => this.random(e, this.props.array)}>Next</button>
+                <Button onClick={(e) => this.random(e, this.props.array)}>Next</Button>
             </div>
         )
     }

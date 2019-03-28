@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 
@@ -83,12 +84,12 @@ class Login extends Component {
                 <Form inline onSubmit={(e) => this.handleSubmitLogin(e)}>
                     <input aria-label="username" className="rounded" type="text" id="username" name="username" required onChange={(e) => this.handleChangeUser(e)} value={this.state.username} placeholder="Username"></input>
                     <input aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" onChange={(e) => this.handleChangePass(e)} value={this.state.password} required></input>
-                    <input aria-label="login" className="rounded ml-1 login" type="submit" value="Login"></input>
+                    <Button aria-label="login" className="rounded ml-1 login" type="submit">Login</Button>
                 </Form>
             )
         } else if (this.props.logForm === "register") {
             return (
-                <Form onSubmit={(e) => this.handleSubmitRegister(e)} className="d-flex flex-column register m-auto p-4">
+                <Form onSubmit={(e) => this.handleSubmitRegister(e)} className="d-flex flex-column register m-auto p-4 blueShadow login">
                     <h4 className="text-center">NEW USER REGISTRATION:</h4>
                     <label className="mx-1" htmlFor="newUsername">Username:</label>
                     <input className="rounded" type="text" id="newUsername" name="username" required
@@ -101,8 +102,8 @@ class Login extends Component {
                     <label className="mx-1 mt-3" htmlFor="confirmPassword">Confirm Password:</label>
                     <input className="rounded" type="password" id="confirmPassword"  name="confirmPassword" required
                         onChange={(e) => this.handleChangeConfirmPass(e)} value={this.state.confirmPassword} ></input>
-                    <p className="error rounded mt-1">{this.state.message}</p>
-                    <input className="rounded align-self-center mt-2" type="submit" value="Register"></input>
+                    <p className="error rounded mt-1 text-center">{this.state.message}</p>
+                    <Button className="rounded align-self-center mt-2 login" type="submit">Register</Button>
                 </Form>
             )
         } else {
