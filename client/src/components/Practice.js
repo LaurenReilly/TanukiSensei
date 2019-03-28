@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
+import { withRouter } from 'react-router-dom';
 
 import Grade from './Grade';
 
@@ -27,11 +28,15 @@ class Practice extends Component {
     }
 
     componentDidMount() {
-        //reset state first
+        if(!this.props.username) {
+            this.props.history.push('/')
+        } else {
+        //reset game specific state items first
         this.props.reset();
         //show first word on screen
         this.random(this.props.array);
-    }
+        }
+      }
 
     isComplete() {
         if (this.props.questionsAnswered >= 9) {
@@ -96,7 +101,8 @@ let mapStateToProps = (state) => {
         answer: state.answer,
         correct: state.correct,
         showCheck: state.showCheck,
-        score: state.score
+        score: state.score,
+        username: state.username
     }
 
 }
@@ -111,4 +117,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Practice);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Practice));

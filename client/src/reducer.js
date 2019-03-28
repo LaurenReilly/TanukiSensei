@@ -45,7 +45,16 @@ let reducer = (state = initalState, action) => {
             username: "",
             firstLesson: 0,
             secondLesson: 0,
-            thirdLesson: 0
+            thirdLesson: 0,
+            lesson: "",
+            array: [],
+            complete: false,
+            questionsAnswered: 0,
+            currentWord: {},
+            userAnswer: "",
+            correct: "",
+            showCheck: true,
+            score: 0
         }
     } else if (type === "LEARN") {
         return {
@@ -89,6 +98,7 @@ let reducer = (state = initalState, action) => {
             userAnswer: "",
             correct: "",
             showCheck: true,
+            score: 0,
         }
     } else {
         return state;

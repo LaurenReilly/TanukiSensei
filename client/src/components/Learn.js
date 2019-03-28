@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import hiragana from '../assets/hiragana';
 import nouns from '../assets/nouns';
@@ -7,6 +8,15 @@ import phrases from '../assets/phrases';
 
 
 class Learn extends Component {
+
+    componentDidMount() {
+        if(!this.props.username) {
+            this.props.history.push('/');
+        } else {
+            return
+        }
+    }
+
     render() {
         if (this.props.lesson === "firstLesson") {
             return (
@@ -73,8 +83,9 @@ class Learn extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        lesson: state.lesson
+        lesson: state.lesson,
+        username: state.username
     }
 }
 
-export default connect(mapStateToProps, null)(Learn);
+export default withRouter(connect(mapStateToProps, null)(Learn));
