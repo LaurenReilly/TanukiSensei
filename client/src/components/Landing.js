@@ -32,7 +32,7 @@ class Landing extends Component {
                         <h1> Learn Japanese the Fun Way</h1>
                         <img className="align-self-center" id="sensei" alt="tanuki logo" width="300" height="300"src={tanuki}/>
                         <h3 className="text-center">study with Tanuki Sensei!</h3>
-                        <Button className="m-auto"onClick={(e) => this.handleClick(e)} aria-controls="collapse-register" aria-expanded={open}>Sign Up</Button>
+                        <Button className="m-auto" onClick={(e) => this.handleClick(e)} aria-controls="collapse-register" aria-expanded={open}>Sign Up</Button>
                     </div>
                 </div>
                 <Collapse in={open}>

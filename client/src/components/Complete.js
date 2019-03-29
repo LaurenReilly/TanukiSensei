@@ -30,8 +30,10 @@ class Complete extends Component {
     }
 
     render() {
+        let percentage = this.props.score * 10
         return(
-            <div>
+            <div className="d-flex flex-column justify-content-center align-items-center">
+                <h5 className="finalScore p-1">You scored {percentage}% correct!</h5>
                 <Button onClick={(e) => this.handleClick(e)}>Complete Lesson</Button>
             </div>
         )

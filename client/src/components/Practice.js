@@ -70,26 +70,37 @@ class Practice extends Component {
         this.setState({...this.state, answer: e.target.value })
     }
 
+    handleKeyPress(event) {
+        if (event.which === 13 /* Enter */) {
+          event.preventDefault();
+        }
+    }
+
     render() {
         let { hiragana, romaji, english} = this.props.currentWord;
+        let {score} = this.props;
+        let percentage = score * 10;
         let check;
         if (this.props.showCheck) {
-            check = <Button aria-label="check" className="rounded ml-1 check" type="submit">Check</Button>
+            check = (
+                <Form className="text-center" onKeyPress={(e) => this.handleKeyPress(e)} onSubmit={(e) => this.handleSubmit(e, english)}>
+                    <input autoComplete="off" aria-label="answer" className="rounded" type="text" id="answer" name="answer" required onChange={(e) => this.handleChange(e)} value={this.state.answer} placeholder="Enter English"></input>
+                    <Button aria-label="check" className="rounded ml-1 check" type="submit">Check</Button>
+                </Form>
+            )
         } else {
             check = null;
         }
         return (
-            <div className="d-flex flex-column m-auto practice">
-                <div className="text-center">
+            <div className="d-flex flex-column m-auto align-items-center practice">
+                <div className="scoreContainer d-flex mt-5 flex-column justify-content-center">
+                    <span className="scoreInside" style={{width:`${percentage}%`}}></span>
+                </div>
+                <div className="text-center m-4">
                     <h1 className="japanese gameWord">{hiragana}</h1>
                     {this.props.lesson === "firstLesson" ? null : <h4>{romaji}</h4>}
-                    <p>{this.props.score}</p>  
                 </div>
-                <Form className="text-center" onSubmit={(e) => this.handleSubmit(e, english)}>
-                    <label htmlFor="answer">English Translation: </label>
-                    <input aria-label="answer" className="rounded" type="text" id="answer" name="answer" required onChange={(e) => this.handleChange(e)} value={this.state.answer} placeholder="Enter English"></input>
-                    {check}
-                </Form>
+                {check}
                 <Grade score={this.state.score}/>
             </div>
         )

@@ -21,7 +21,27 @@ body {
 }
 
 .gameWord {
-  font-size: 10em;
+  font-size: 6em;
+}
+
+.scoreContainer {
+  border: 2px solid var(--dark-blue);
+  background-color: white;
+  width: 40%;
+  height: 2.5em;
+  border-radius: 20px;
+}
+
+.scoreInside {
+  background-color: var(--myGreen);
+  border-right: 0px solid white;
+  height: 2.3em;
+  border-radius: 20px;
+}
+
+.finalScore {
+  background-color: white;
+  border-radius: 20px;
 }
 
 .navbar {
@@ -116,7 +136,12 @@ input, input:hover, input:active {
 .menu {
   background-color: var(--faded-green);
   border: 5px solid var(--dark-blue);
-  width: 30%;
+  width: 25em;
+}
+
+.menu-title:hover {
+ transform: scale(1.05);
+ cursor: pointer;
 }
 
 .menuDropdown {
@@ -160,4 +185,54 @@ input, input:hover, input:active {
   -moz-animation: senseiAnimation 10s 5 ease;
   -o-animation: senseiAnimation 10s 5 ease;
   animation: senseiAnimation 10s 5 ease;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 20em;
+  height: 10em;
+  /* perspective: 1000px; Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you click and hold on the flip box container */
+.flip-card:active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card:hover {
+  cursor: pointer;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  border: 2px solid var(--myGreen);
+  border-radius: 5px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: var(--faded-green);
+  color: var(--dark-blue);
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: var(--faded-green);
+  color: var(--dark-blue);
+  transform: rotateY(180deg);
 }

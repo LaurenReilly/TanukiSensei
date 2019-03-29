@@ -16,7 +16,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1 className="text-center">Welcome, {this.props.username}!</h1>
+                <h1 className="text-center m-5">Welcome, {this.props.username}!</h1>
                 <Menu />
             </div>
         )

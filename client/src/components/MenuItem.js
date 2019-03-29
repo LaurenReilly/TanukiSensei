@@ -18,9 +18,9 @@ class MenuItem extends Component {
           this.setState({ ...this.state, open: !this.state.open });
       }
       //give this array as well then in LEARN.js you can reference array in state instead of importing into doc
-      handleLearn = (e, lesson) => {
+      handleLearn = (e, lesson, array) => {
           e.preventDefault();
-          this.props.learn(lesson);
+          this.props.learn(lesson, array);
           this.props.history.push('/learn');
       }
 
@@ -34,15 +34,17 @@ class MenuItem extends Component {
         const { open } = this.state;
         const {title, lesson, score, array} = this.props;
         return (
-          <div className="mb-5"> 
-            <div className="d-flex">
-              <h3 onClick={(e) => this.handleClick(e)} aria-controls="collapse-text" aria-expanded={open}>{title}</h3>
+          <div className="mb-2"> 
+            <div className="text-center">
+              <h3 className="menu-title" onClick={(e) => this.handleClick(e)} aria-controls="collapse-text" aria-expanded={open}>{title}</h3>
               <p className="ml-2">Most Recent Grade: {score * 10}%</p>
             </div>
             <Collapse in={open}>
-              <div id="collapse-text" className="menuDropdown">
-                <Button className="mr-2" onClick={(e) => this.handleLearn(e, lesson)}>Learn</Button>
-                <Button onClick={(e) => this.handlePractice(e, lesson, array)}>Practice</Button>
+              <div id="collapse-text">
+                <div className="d-flex justify-content-around menuDropdown rounded p-1">
+                  <Button className="" onClick={(e) => this.handleLearn(e, lesson, array)}>Learn</Button>
+                  <Button className="" onClick={(e) => this.handlePractice(e, lesson, array)}>Practice</Button>
+                </div>
               </div>
             </Collapse>
           </div>
@@ -60,7 +62,7 @@ class MenuItem extends Component {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-       learn: (lesson) => dispatch({type: "LEARN", lesson: lesson}),
+       learn: (lesson, array) => dispatch({type: "LEARN", lesson: lesson, array: array}),
        practice: (lesson, array) => dispatch({type: "PRACTICE", lesson: lesson, array: array})
     }
 }

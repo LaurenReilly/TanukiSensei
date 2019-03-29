@@ -59,7 +59,8 @@ let reducer = (state = initalState, action) => {
     } else if (type === "LEARN") {
         return {
             ...state,
-            lesson: lesson
+            lesson: lesson,
+            array: array
         }
     } else if (type === "PRACTICE") {
         return {
@@ -74,7 +75,8 @@ let reducer = (state = initalState, action) => {
             currentWord: currentWord,
             array: array,
             showCheck: true,
-            correct: ""
+            correct: "",
+            userAnswer: ""
         }
     } else if (type === "CHECK") {
         return {
