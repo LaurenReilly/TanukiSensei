@@ -9,7 +9,7 @@ import phrases from '../assets/phrases';
 class Menu extends Component {
     render() {
         return (
-            <div className="menu m-auto blueShadow">
+            <div className="menu m-auto blueShadow rounded">
                 <MenuItem title="Hiragana" lesson="firstLesson" score={this.props.firstLesson} array={hiragana}/>
                 <MenuItem title="Nouns" lesson="secondLesson" score={this.props.secondLesson} array={nouns}/>
                 <MenuItem title="Phrases" lesson="thirdLesson" score={this.props.thirdLesson} array={phrases}/>

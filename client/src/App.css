@@ -5,17 +5,23 @@
   --light-blue: rgb(193, 236, 255);
   --faded-blue: rgba(193, 236, 255, .25);
   --dark-blue: #55A3FC;
-  --green: rgb(127, 196, 31);
+  --myGreen: rgb(127, 196, 31);
   --faded-green: rgba(127, 196, 31, .25);
   font-family: 'Varela Round', sans-serif;
 }
 
+
 body {
   font-family: 'Varela Round', sans-serif;
+  background-color: var(--faded-blue);
 }
 
-.japanese {
+.japanese, .gameWord {
   font-family: 'Kosugi Maru', sans-serif;
+}
+
+.gameWord {
+  font-size: 10em;
 }
 
 .navbar {
@@ -35,6 +41,8 @@ h1, h2, h3, h4, h5, h6, p, dl {
   color: var(--dark-blue);
   background-color: white;
   border: 3px solid var(--dark-blue);
+  box-shadow: none;
+  outline: none;
 }
 
 .btn:hover {
@@ -42,6 +50,13 @@ h1, h2, h3, h4, h5, h6, p, dl {
   color: var(--dark-blue);
   background-color: white;
   border: 3px solid var(--dark-blue);
+  box-shadow: none;
+  outline: none;
+}
+
+.btn:active, .btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 input, input:hover, input:active {
@@ -57,13 +72,19 @@ input, input:hover, input:active {
 
 .register {
   background-color: var(--faded-green);
+  border: 5px solid var(--myGreen);
   border-radius: 5px;
   width: 500px;
 }
 
-.error, .wrong{
+.error {
   background-color: var(--light-pink);
   color: var(--dark-pink);
+}
+
+.wrong {
+  background-color: var(--light-pink);
+  width: 30%
 }
 
 .wrong p {
@@ -72,6 +93,7 @@ input, input:hover, input:active {
 
 .correct {
   background-color: var(--faded-green);
+  width: 30%;
 }
 
 .correct p {
@@ -79,7 +101,8 @@ input, input:hover, input:active {
 }
 
 .practice {
-  width: 30%;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .description {
@@ -87,15 +110,54 @@ input, input:hover, input:active {
 }
 
 .sensei {
-  background-color: var(--faded-blue);
+  background-color: var(--faded-green);
 }
 
 .menu {
-  background-color: var(--faded-blue);
+  background-color: var(--faded-green);
   border: 5px solid var(--dark-blue);
   width: 30%;
 }
 
 .menuDropdown {
   background-color: var(--faded-green);
+}
+
+@keyframes senseiAnimation {
+  0% {transform: rotate(0deg)}
+  25% {transform: rotate(10deg)}
+  50% {transform: rotate(0deg)}
+  75% {transform: rotate(-10deg)}
+  100% {transform: rotate(0deg)}
+}
+
+@-o-keyframes senseiAnimation {
+  0% {transform: rotate(0deg)}
+  25% {transform: rotate(10deg)}
+  50% {transform: rotate(0deg)}
+  75% {transform: rotate(-10deg)}
+  100% {transform: rotate(0deg)}
+}
+
+@-webkit-keyframes senseiAnimation {
+  0% {transform: rotate(0deg)}
+  25% {transform: rotate(10deg)}
+  50% {transform: rotate(0deg)}
+  75% {transform: rotate(-10deg)}
+  100% {transform: rotate(0deg)}
+}
+
+@-moz-keyframes senseiAnimation {
+  0% {transform: rotate(0deg)}
+  25% {transform: rotate(10deg)}
+  50% {transform: rotate(0deg)}
+  75% {transform: rotate(-10deg)}
+  100% {transform: rotate(0deg)}
+}
+
+#sensei {
+  -webkit-animation: senseiAnimation 10s 5 ease;
+  -moz-animation: senseiAnimation 10s 5 ease;
+  -o-animation: senseiAnimation 10s 5 ease;
+  animation: senseiAnimation 10s 5 ease;
 }

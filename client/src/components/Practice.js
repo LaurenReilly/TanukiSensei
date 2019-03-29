@@ -80,10 +80,12 @@ class Practice extends Component {
         }
         return (
             <div className="d-flex flex-column m-auto practice">
-                <h1>{hiragana}</h1>
-                {this.props.lesson === "firstLesson" ? null : <h4>{romaji}</h4>}
-                <p>{this.props.score}</p>
-                <Form onSubmit={(e) => this.handleSubmit(e, english)}>
+                <div className="text-center">
+                    <h1 className="japanese gameWord">{hiragana}</h1>
+                    {this.props.lesson === "firstLesson" ? null : <h4>{romaji}</h4>}
+                    <p>{this.props.score}</p>  
+                </div>
+                <Form className="text-center" onSubmit={(e) => this.handleSubmit(e, english)}>
                     <label htmlFor="answer">English Translation: </label>
                     <input aria-label="answer" className="rounded" type="text" id="answer" name="answer" required onChange={(e) => this.handleChange(e)} value={this.state.answer} placeholder="Enter English"></input>
                     {check}
