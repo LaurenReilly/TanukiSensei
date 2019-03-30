@@ -30,7 +30,10 @@ router.post('/store', function (req, res, next) {
     let firstLesson = req.body.firstLesson;
     let secondLesson = req.body.secondLesson;
     let thirdLesson = req.body.thirdLesson;
-    db.none('UPDATE users SET firstlesson = $2, secondlesson = $3, thirdlesson = $4 WHERE username = $1', [username, firstLesson, secondLesson, thirdLesson])
+    let fourthLesson = req.body.fourthLesson;
+    let fifthLesson = req.body.fifthLesson;
+    let sixthLesson = req.body.sixthLesson;
+    db.none('UPDATE users SET firstlesson = $2, secondlesson = $3, thirdlesson = $4, fourthlesson = $5, fifthlesson = $6, sixthlesson = $7 WHERE username = $1', [username, firstLesson, secondLesson, thirdLesson, fourthLesson, fifthLesson, sixthLesson])
         .then(data => {
             console.log("updated users information in DB");
             res.json(data)

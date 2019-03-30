@@ -17,7 +17,7 @@ class MenuItem extends Component {
           e.preventDefault();
           this.setState({ ...this.state, open: !this.state.open });
       }
-      //give this array as well then in LEARN.js you can reference array in state instead of importing into doc
+
       handleLearn = (e, lesson, array) => {
           e.preventDefault();
           this.props.learn(lesson, array);
@@ -34,7 +34,7 @@ class MenuItem extends Component {
         const { open } = this.state;
         const {title, lesson, score, array} = this.props;
         return (
-          <div className="mb-2"> 
+          <div className="mb-5"> 
             <div className="text-center">
               <h3 className="menu-title" onClick={(e) => this.handleClick(e)} aria-controls="collapse-text" aria-expanded={open}>{title}</h3>
               <p className="ml-2">Most Recent Grade: {score * 10}%</p>

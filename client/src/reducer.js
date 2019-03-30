@@ -3,6 +3,9 @@ let initalState = {
     firstLesson: 0,
     secondLesson: 0,
     thirdLesson: 0,
+    fourthLesson: 0,
+    fifthLesson: 0,
+    sixthLesson: 0,
     lesson: "",
     array: [],
     complete: false,
@@ -15,14 +18,17 @@ let initalState = {
 }
 
 let reducer = (state = initalState, action) => {
-    let {type, username, firstLesson, secondLesson, thirdLesson, lesson, array, grade, score, currentWord} = action;
+    let {type, username, firstLesson, secondLesson, thirdLesson, fourthLesson, fifthLesson, sixthLesson, lesson, array, grade, score, currentWord} = action;
     if (type === "LOGIN") {
         return {
             ...state,
             username: username,
             firstLesson: firstLesson,
             secondLesson: secondLesson,
-            thirdLesson: thirdLesson
+            thirdLesson: thirdLesson,
+            fourthLesson: fourthLesson,
+            fifthLesson: fifthLesson,
+            sixthLesson: sixthLesson
         }
     } else if (type === "UPDATE_FIRST") {
         return {
@@ -39,6 +45,21 @@ let reducer = (state = initalState, action) => {
             ...state,
             thirdLesson: score
         }
+    } else if (type === "UPDATE_FOURTH") {
+        return {
+            ...state,
+            fourthLesson: score
+        }
+    } else if (type === "UPDATE_FIFTH") {
+        return {
+            ...state,
+            fifthLesson: score
+        }
+    } else if (type === "UPDATE_SIXTH") {
+        return {
+            ...state,
+            sixthLesson: score
+        }
     } else if (type === "LOG_OUT") {
         return {
             ...state,
@@ -46,6 +67,9 @@ let reducer = (state = initalState, action) => {
             firstLesson: 0,
             secondLesson: 0,
             thirdLesson: 0,
+            fourthLesson: 0,
+            fifthLesson: 0,
+            sixthLesson: 0,
             lesson: "",
             array: [],
             complete: false,

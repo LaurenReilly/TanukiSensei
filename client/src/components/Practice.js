@@ -80,7 +80,7 @@ class Practice extends Component {
 
     render() {
         let { hiragana, romaji, english} = this.props.currentWord;
-        let {score} = this.props;
+        let {score, lesson} = this.props;
         let percentage = score * 10;
         let check;
         if (this.props.showCheck) {
@@ -100,7 +100,7 @@ class Practice extends Component {
                 </div>
                 <div className="text-center m-4">
                     <h1 className="japanese gameWord">{hiragana}</h1>
-                    {this.props.lesson === "firstLesson" ? null : <h4>{romaji}</h4>}
+                    {(lesson === "firstLesson" || lesson === "fourthLesson") ? null : <h4>{romaji}</h4>}
                 </div>
                 {check}
                 <Grade score={this.state.score}/>

@@ -148,6 +148,12 @@ input, input:hover, input:active {
   background-color: var(--faded-green);
 }
 
+.menuHeading {
+  color: var(--myGreen);
+  background-color: white;
+  border-radius: 20px;
+}
+
 @keyframes senseiAnimation {
   0% {transform: rotate(0deg)}
   25% {transform: rotate(10deg)}
@@ -192,7 +198,7 @@ input, input:hover, input:active {
   background-color: transparent;
   width: 20em;
   height: 10em;
-  /* perspective: 1000px; Remove this if you don't want the 3D effect */
+  perspective: 1000px;
 }
 
 /* This container is needed to position the front and back side */
@@ -226,12 +232,14 @@ input, input:hover, input:active {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
+  box-shadow: 5px 5px 5px var(--light-blue);
   background-color: var(--faded-green);
   color: var(--dark-blue);
 }
 
 /* Style the back side */
 .flip-card-back {
+  box-shadow: 5px 5px 5px var(--light-blue);
   background-color: var(--faded-green);
   color: var(--dark-blue);
   transform: rotateY(180deg);

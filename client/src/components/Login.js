@@ -21,9 +21,7 @@ class Login extends Component {
     async getProgress() {
         let response = await axios.get(`/update/progress/${this.state.username}`);
         let obj = response.data
-        console.log(obj.firstlesson);
-        console.log(obj.username)
-        this.props.login(obj.username, obj.firstlesson, obj.secondlesson, obj.thirdlesson);
+        this.props.login(obj.username, obj.firstlesson, obj.secondlesson, obj.thirdlesson, obj.fourthlesson, obj.fifthlesson, obj.sixthlesson);
         this.props.history.push('/home');
     }
 
@@ -125,14 +123,17 @@ let mapStateToProps = (state) => {
       username: state.username,
       firstLesson: state.firstLesson,
       secondLesson: state.secondLesson,
-      thirdLesson: state.thirdLesson
+      thirdLesson: state.thirdLesson,
+      fourthLesson: state.fourthLesson,
+      fifthLesson: state.fifthLesson,
+      sixthLesson: state.sixthLesson,
     }
   }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        login: (username,firstLesson, secondLesson, thirdLesson) => 
-        dispatch({type: "LOGIN", username: username, firstLesson: firstLesson, secondLesson: secondLesson, thirdLesson: thirdLesson}),
+        login: (username,firstLesson, secondLesson, thirdLesson, fourthLesson, fifthLesson, sixthLesson) => 
+        dispatch({type: "LOGIN", username: username, firstLesson: firstLesson, secondLesson: secondLesson, thirdLesson: thirdLesson, fourthLesson: fourthLesson, fifthLesson: fifthLesson, sixthLesson: sixthLesson}),
     }
 }
   
