@@ -15,7 +15,7 @@ let initalState = {
 }
 
 let reducer = (state = initalState, action) => {
-    let {type, username, firstLesson, secondLesson, thirdLesson, lesson, currentWord, array, grade, score} = action;
+    let {type, username, firstLesson, secondLesson, thirdLesson, lesson, array, grade, score, currentWord} = action;
     if (type === "LOGIN") {
         return {
             ...state,
@@ -100,7 +100,7 @@ let reducer = (state = initalState, action) => {
             userAnswer: "",
             correct: "",
             showCheck: true,
-            score: 0,
+            score: 0
         }
     } else {
         return state;

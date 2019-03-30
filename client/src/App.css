@@ -89,6 +89,10 @@ input, input:hover, input:active {
   color: var(--dark-blue);
 }
 
+.homeLogo:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
 
 .register {
   background-color: var(--faded-green);
@@ -123,10 +127,6 @@ input, input:hover, input:active {
 .practice {
   margin: 0 auto;
   width: 80%;
-}
-
-.description {
-  background-color: var(--faded-pink);
 }
 
 .sensei {
@@ -235,4 +235,43 @@ input, input:hover, input:active {
   background-color: var(--faded-green);
   color: var(--dark-blue);
   transform: rotateY(180deg);
+}
+
+@keyframes shake {
+  0% {transform: translate(0px)}
+  25% {transform: translate(2px)}
+  50% {transform: translate(-2px)}
+  75% {transform: translate(2px)}
+  100% {transform: translate(0px)}
+}
+
+@-o-keyframes shake {
+  0% {transform: translate(0px)}
+  25% {transform: translate(2px)}
+  50% {transform: translate(-2px)}
+  75% {transform: translate(2px)}
+  100% {transform: translate(0px)}
+}
+
+@-webkit-keyframes shake {
+  0% {transform: translate(0px)}
+  25% {transform: translate(2px)}
+  50% {transform: translate(-2px)}
+  75% {transform: translate(2px)}
+  100% {transform: translate(0px)}
+}
+
+@-moz-keyframes shake {
+  0% {transform: translate(0px)}
+  25% {transform: translate(2px)}
+  50% {transform: translate(-2px)}
+  75% {transform: translate(2px)}
+  100% {transform: translate(0px)}
+}
+
+.shake {
+  -webkit-animation: shake .5s linear;
+  -moz-animation: shake .5s linear;
+  -o-animation: shake .5s linear;
+  animation: shake .5s linear;
 }

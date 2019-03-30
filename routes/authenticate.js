@@ -39,7 +39,7 @@ router.post('/register', function (req, res, next) {
     db.any('SELECT * FROM users WHERE username = $1', [username])
         .then(function (data) {
             //checking to see if a user exists in the database
-            if  ( data.length == 1) {
+            if  (data.length == 1) {
                 res.status(400).send({error: "Username already exists"});
             } else {
                 let hashedPassword = bcrypt.hashSync(password, 10);

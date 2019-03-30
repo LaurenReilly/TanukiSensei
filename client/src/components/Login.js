@@ -13,7 +13,8 @@ class Login extends Component {
             username: "",
             password: "",
             confirmPassword: "",
-            message: ""
+            message: "",
+            animation: ""
         }
     }
 
@@ -27,7 +28,7 @@ class Login extends Component {
     }
 
    //send username and password to database to check if user exists and password matches 
-   handleSubmitLogin(e){
+   handleSubmitLogin = (e) => {
     e.preventDefault();
     axios.post('/authenticate/login', {
         username: this.state.username,
@@ -37,7 +38,8 @@ class Login extends Component {
         console.log(response);
         this.getProgress();
       })
-      .catch(function (error) {
+      .catch((error) => {
+        this.setState({...this.state, animation: "shake"});
         console.log(error);
       });
     }
@@ -53,10 +55,11 @@ class Login extends Component {
                 username: this.state.username,
                 password: this.state.password
                 })
-                .then( (response) => {
+                .then((response) => {
                 this.handleSubmitLogin(e);
                 })
-                .catch(function (error) {
+                .catch((error) => {
+                this.setState({...this.state, message: "User already exists!" });
                 console.log(error);
                 });
         } else {
@@ -78,12 +81,17 @@ class Login extends Component {
         this.setState({...this.state, confirmPassword: e.target.value })
     }
 
+    handleEnd = (e) => {
+        e.preventDefault();
+        this.setState({...this.state, animation: ""})
+    }
+
     render() {
         if (this.props.logForm === "login") {
             return (
-                <Form inline onSubmit={(e) => this.handleSubmitLogin(e)}>
-                    <input aria-label="username" className="rounded" type="text" id="username" name="username" required onChange={(e) => this.handleChangeUser(e)} value={this.state.username} placeholder="Username"></input>
-                    <input aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" onChange={(e) => this.handleChangePass(e)} value={this.state.password} required></input>
+                <Form className={this.state.animation} inline onSubmit={(e) => this.handleSubmitLogin(e)} onAnimationEnd={(e) => this.handleEnd(e)}>
+                    <input maxLength="15" aria-label="username" className="rounded" type="text" id="username" name="username" required onChange={(e) => this.handleChangeUser(e)} value={this.state.username} placeholder="Username"></input>
+                    <input maxLength="15" aria-label="password" className="rounded ml-1" type="password" id="password" name="password" placeholder="Password" onChange={(e) => this.handleChangePass(e)} value={this.state.password} required></input>
                     <Button aria-label="login" className="rounded ml-1 login" type="submit">Login</Button>
                 </Form>
             )
@@ -92,15 +100,15 @@ class Login extends Component {
                 <Form onSubmit={(e) => this.handleSubmitRegister(e)} className="d-flex flex-column register m-auto p-4 blueShadow login">
                     <h4 className="text-center">NEW USER REGISTRATION:</h4>
                     <label className="mx-1" htmlFor="newUsername">Username:</label>
-                    <input className="rounded" type="text" id="newUsername" name="username" required
+                    <input maxLength="15" className="rounded" type="text" id="newUsername" name="username" required
                         onChange={(e) => this.handleChangeUser(e)} 
                         value={this.state.username}></input>
                     <label className="mx-1 mt-3" htmlFor="newPassword">Password:</label>
-                    <input className="rounded" type="password" id="newPassword"  name="password" required
+                    <input maxLength="15" className="rounded" type="password" id="newPassword"  name="password" required
                         onChange={(e) => this.handleChangePass(e)} 
                         value={this.state.password}></input>
                     <label className="mx-1 mt-3" htmlFor="confirmPassword">Confirm Password:</label>
-                    <input className="rounded" type="password" id="confirmPassword"  name="confirmPassword" required
+                    <input maxLength="15" className="rounded" type="password" id="confirmPassword"  name="confirmPassword" required
                         onChange={(e) => this.handleChangeConfirmPass(e)} value={this.state.confirmPassword} ></input>
                     <p className="error rounded mt-1 text-center">{this.state.message}</p>
                     <Button className="rounded align-self-center mt-2 login" type="submit">Register</Button>

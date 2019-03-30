@@ -16,7 +16,7 @@ class Practice extends Component {
         super(props)
         this.state = {
             answer: "",
-            score: 0
+            score: 0,
         }
     }
 
@@ -30,13 +30,14 @@ class Practice extends Component {
     }
 
     componentDidMount() {
+        let array = this.props.array.slice();
         if(!this.props.username) {
             this.props.history.push('/')
         } else {
-        //reset game specific state items first
+        //reset game specific state items 
         this.props.reset();
-        //show first word on screen
-        this.random(this.props.array);
+        //show first word on screen using array from state instead of initialArray
+        this.random(array);
         }
       }
 
@@ -70,6 +71,7 @@ class Practice extends Component {
         this.setState({...this.state, answer: e.target.value })
     }
 
+    //prevents user from using enter key to submit the form, can only submit by clicking check button
     handleKeyPress(event) {
         if (event.which === 13 /* Enter */) {
           event.preventDefault();

@@ -9,7 +9,7 @@ class Grade extends Component {
         if (this.props.complete) {
             button = <Complete score={this.props.score}/>
         } else if(!this.props.complete) {
-            button = <Next />
+            button = <Next array={this.props.array}/>
         }
        if(this.props.correct === "correct") {
             return (
