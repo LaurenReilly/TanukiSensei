@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
+    "postinstall": "cd client && npm install",
+    "build": "cd client && npm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lauren Reilly",

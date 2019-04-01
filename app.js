@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-// var path = require('path');
+var path = require('path');
 
 
 //will normalize the port into a useable number
@@ -40,16 +40,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //setting up for deploying, api will serve client folder
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 //if the app is pointing to /authenticate use authenticate.js in routes which will control everything after authenticate/...
 app.use('/authenticate', authenticate);
 app.use ('/update', update);
 
 //allows react router to handle routes, anything other that what is listed above will go through react-router
-// app.get('/*', function(req,res) {
-//   res.sendFile(path.join)(__dirname, 'client/build', 'index.html')
-// });
+app.get('/*', function(req,res) {
+  res.sendFile(path.join)(__dirname, 'client/build', 'index.html')
+});
 
 
 app.listen(port, () => {
