@@ -21,6 +21,7 @@ class Learn extends Component {
                     <h1>Hiragana</h1>
                     <p>In Japanese, Hiragana is like the English Alphabet. These characters represent all of the sounds in the Japanese language.</p>
                     <p>The first lesson will cover ten of the 46 basic characters.</p>
+                    <p>*click and hold to flip card</p>
                 </div>
             )
         } else if (this.props.lesson === "secondLesson") {
@@ -29,6 +30,7 @@ class Learn extends Component {
                     <h1>Nouns</h1>
                     <p>Memorize these common nouns.</p>
                     <p>Romaji is the way we write Japanese words in english phonetically.</p>
+                    <p>*click and hold to flip card</p>
                 </div>
             )
         } else if (this.props.lesson === "thirdLesson") {
@@ -37,6 +39,34 @@ class Learn extends Component {
                         <h1>Phrases</h1>
                         <p>Memorize these common phrases.</p>
                         <p>Romaji is the way we write Japanese words in english phonetically.</p>
+                        <p>*click and hold to flip card</p>
+                    </div>
+            )
+        } else if (this.props.lesson === "fourthLesson") {
+            lessonHeader = (
+                <div className="text-center mt-4">
+                        <h1>Hiragana 2</h1>
+                        <p>In Japanese, Hiragana is like the English Alphabet. These characters represent all of the sounds in the Japanese language.</p>
+                        <p>The second lesson will cover ten more of the 46 basic characters.</p>
+                        <p>*click and hold to flip card</p>
+                    </div>
+            )
+        } else if (this.props.lesson === "fifthLesson") {
+            lessonHeader = (
+                <div className="text-center mt-4">
+                        <h1>Verbs</h1>
+                        <p>Memorize these common verbs.</p>
+                        <p>Romaji is the way we write Japanese words in english phonetically.</p>
+                        <p>*click and hold to flip card</p>
+                    </div>
+            )
+        } else if (this.props.lesson === "sixthLesson") {
+            lessonHeader = (
+                <div className="text-center mt-4">
+                        <h1>People</h1>
+                        <p>Memorize these people.</p>
+                        <p>Romaji is the way we write Japanese words in english phonetically.</p>
+                        <p>*click and hold to flip card</p>
                     </div>
             )
         } else {

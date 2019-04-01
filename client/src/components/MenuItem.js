@@ -48,7 +48,6 @@ class MenuItem extends Component {
               </div>
             </Collapse>
           </div>
-            
         )
     }
 }

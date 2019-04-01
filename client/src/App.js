@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Practice from './components/Practice';
 import Header from './components/Header';
 import Learn from './components/Learn';
+import ScrollToTop from './components/ScrollToTop';
 
 import './App.css';
 
@@ -15,12 +16,14 @@ class App extends Component {
     return (
       <div className="App">
        <Header/>
-       <Switch>
-          <Route exact path="/" component={Landing}/>
-          <Route path="/home" component={Home}/>
-          <Route path="/learn" component={Learn}/>
-          <Route path="/practice" component={Practice}/>
-        </Switch>
+       <ScrollToTop>
+        <Switch>
+            <Route exact path="/" component={Landing}/>
+            <Route path="/home" component={Home}/>
+            <Route path="/learn" component={Learn}/>
+            <Route path="/practice" component={Practice}/>
+          </Switch>
+       </ScrollToTop>
       </div>
     );
   }

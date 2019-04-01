@@ -7,6 +7,8 @@
   --dark-blue: #55A3FC;
   --myGreen: rgb(127, 196, 31);
   --faded-green: rgba(127, 196, 31, .25);
+  --gray:rgba(182, 182, 182, 0.25);
+  --dark-gray: rgba(107, 107, 107, 0.25);
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -139,10 +141,20 @@ input, input:hover, input:active {
   width: 25em;
 }
 
+.menuDisabled {
+  background-color: var(--gray);
+  border: 5px solid var(--dark-gray);
+  width: 25em;
+}
+
 .menu-title:hover {
  transform: scale(1.05);
  cursor: pointer;
 }
+
+.menu-titleDisabled {
+  color: var(--dark-gray);
+ }
 
 .menuDropdown {
   background-color: var(--faded-green);
@@ -152,6 +164,15 @@ input, input:hover, input:active {
   color: var(--myGreen);
   background-color: white;
   border-radius: 20px;
+}
+
+.menuHeadingDisabled {
+  color: var(--dark-gray);
+  border-radius: 20px;
+}
+
+.locked {
+  color: var(--dark-gray);
 }
 
 @keyframes senseiAnimation {

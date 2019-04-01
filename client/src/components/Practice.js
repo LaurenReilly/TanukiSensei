@@ -99,8 +99,8 @@ class Practice extends Component {
                     <span className="scoreInside" style={{width:`${percentage}%`}}></span>
                 </div>
                 <div className="text-center m-4">
-                    <h1 className="japanese gameWord">{hiragana}</h1>
-                    {(lesson === "firstLesson" || lesson === "fourthLesson") ? null : <h4>{romaji}</h4>}
+                    <h1 className="japanese gameWord mt-4">{hiragana}</h1>
+                    {(lesson === "firstLesson" || lesson === "fourthLesson") ? null : <h4 className="mb-4">{romaji}</h4>}
                 </div>
                 {check}
                 <Grade score={this.state.score}/>

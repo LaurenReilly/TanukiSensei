@@ -33,12 +33,11 @@ class Login extends Component {
         password: this.state.password
       })
       .then((response) => {
-        console.log(response);
         this.getProgress();
       })
       .catch((error) => {
         this.setState({...this.state, animation: "shake"});
-        console.log(error);
+        console.log("Incorrect Username/Password " + error);
       });
     }
 
@@ -58,7 +57,7 @@ class Login extends Component {
                 })
                 .catch((error) => {
                 this.setState({...this.state, message: "User already exists!" });
-                console.log(error);
+                console.log("User Already Exists " + error);
                 });
         } else {
             return
