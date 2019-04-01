@@ -4,16 +4,6 @@ A game based solution to learning Japanese! Create an account and Tanuki Sensei 
 
 [Learn Japanese The Fun Way!](https://tanukisensei.herokuapp.com/)
 
-## Landing Page
-![Landing](./readMeImages/landing.png)
-## Home Page with Chapter Two Locked
-![Homelocked](./readMeImages/chapter2lock.png)
-## Home Page with Chapter Two Unlocked
-![Home](./readMeImages/homeunlocked.png)
-## Practice Page
-![Practice](./readMeImages/practice.png)
-## Play Page
-![Play](./readMeImages/play.png)
 ## Front End Specs
 
 The color scheme for this project was inspired by a picture of a blooming cherry tree in Japan. All art assets are my original creations.
