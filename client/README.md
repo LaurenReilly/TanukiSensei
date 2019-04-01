@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tanuki Sensei
 
-## Available Scripts
+A game based solution to learning Japanese! Create an account and Tanuki Sensei will track your progress as you learn. Check out the Practice pages to use flashcards while you memorize vocabulary and Japanese characters, then head over to the Play pages and play a game to test what you know in a low stress learning environment. Unlock new chapters after completing the previous chapters with a score of 100%. Revisit completed material to make sure you are still at the top of your game.
 
-In the project directory, you can run:
+[Learn Japanese The Fun Way!](https://tanukisensei.herokuapp.com/)
 
-### `npm start`
+## Landing Page
+![Landing](./readMeImages/landing.png)
+## Home Page with Chapter Two Locked
+![Homelocked](./readMeImages/chapter2lock.png)
+## Home Page with Chapter Two Unlocked
+![Home](./readMeImages/homeunlocked.png)
+## Practice Page
+![Practice](./readMeImages/practice.png)
+## Play Page
+![Play](./readMeImages/play.png)
+## Front End Specs
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The color scheme for this project was inspired by a picture of a blooming cherry tree in Japan. All art assets are my original creations.
+This project was created with React.js and Redux. I used a combination of custom CSS and Bootstrap for the styling. Other packages included for functionality are:
+- react-bootstrap
+- react-router
+- react-redux
+- axios
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Back End Specs
 
-### `npm test`
+### API
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I built an API on the backend to easily record and retrieve a users information into and from the database on login and when a lesson has been completed. I used axios to communicate between the front end and the back end API.
 
-### `npm run build`
+### Server
+I created the server using Node.js and express to serve the application.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Login
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- The login feature was built using the local strategy of passport.js. All passwords are encrypted using bcrypt.js. In order to keep track of a logged in user I also used express sessions. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- When a user registers error messages will be shown if that username is already taken, and if the password and confirm password fields do not match. After a successful registration the user is also logged in and taken to the home page. 
 
-### `npm run eject`
+- The login form in the header will shake if username/password are incorrect. On successful login the user will be taken to the homepage and the login form will change to a logout button.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Database
+ I created a postgres database using heroku and also deployed the site via heroku. I communicated with the database using the pg-promise library and postgreSQL commands.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ ## About The Developer
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ I created this full-stack application for my final project at Digital Crafts coding bootcamp. I worked independently so that I could be sure I was confident in every stage of building a full-stack web application from idea to deployment. I am part Japanese and I enjoy gaming so I decided to merge those two aspects of myself to build something fun that could help people learn. Full stack web development is a field that excites and inspires me. I am beyond excited to continue working in this field while learning new skills and enhancing those that I already have. I would love to continue working on Tanuki Sensei in the future, adding new lessons and functionality that will help people learn beginner Japanese. 
