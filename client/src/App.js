@@ -4,9 +4,9 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Landing from './components/Landing';
 import Home from './components/Home';
-import Practice from './components/Practice';
+import Play from './components/Play';
 import Header from './components/Header';
-import Learn from './components/Learn';
+import Practice from './components/Practice';
 import ScrollToTop from './components/ScrollToTop';
 
 import './App.css';
@@ -20,8 +20,8 @@ class App extends Component {
         <Switch>
             <Route exact path="/" component={Landing}/>
             <Route path="/home" component={Home}/>
-            <Route path="/learn" component={Learn}/>
             <Route path="/practice" component={Practice}/>
+            <Route path="/play" component={Play}/>
           </Switch>
        </ScrollToTop>
       </div>

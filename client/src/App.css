@@ -175,6 +175,10 @@ input, input:hover, input:active {
   color: var(--dark-gray);
 }
 
+.menuButton {
+  width: 6em;
+}
+
 @keyframes senseiAnimation {
   0% {transform: rotate(0deg)}
   25% {transform: rotate(10deg)}
@@ -208,10 +212,10 @@ input, input:hover, input:active {
 }
 
 #sensei {
-  -webkit-animation: senseiAnimation 10s 5 ease;
-  -moz-animation: senseiAnimation 10s 5 ease;
-  -o-animation: senseiAnimation 10s 5 ease;
-  animation: senseiAnimation 10s 5 ease;
+  -webkit-animation: senseiAnimation 10s 10 ease;
+  -moz-animation: senseiAnimation 10s 10 ease;
+  -o-animation: senseiAnimation 10s 10 ease;
+  animation: senseiAnimation 10s 10 ease;
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */

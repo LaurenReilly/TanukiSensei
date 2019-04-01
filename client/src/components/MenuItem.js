@@ -18,16 +18,16 @@ class MenuItem extends Component {
           this.setState({ ...this.state, open: !this.state.open });
       }
 
-      handleLearn = (e, lesson, array) => {
-          e.preventDefault();
-          this.props.learn(lesson, array);
-          this.props.history.push('/learn');
-      }
-
       handlePractice = (e, lesson, array) => {
           e.preventDefault();
-          this.props.practice(lesson, array);
+          this.props.learn(lesson, array);
           this.props.history.push('/practice');
+      }
+
+      handlePlay = (e, lesson, array) => {
+          e.preventDefault();
+          this.props.practice(lesson, array);
+          this.props.history.push('/play');
       }
 
       render() {
@@ -42,8 +42,8 @@ class MenuItem extends Component {
             <Collapse in={open}>
               <div id="collapse-text">
                 <div className="d-flex justify-content-around menuDropdown rounded p-1">
-                  <Button className="" onClick={(e) => this.handleLearn(e, lesson, array)}>Learn</Button>
-                  <Button className="" onClick={(e) => this.handlePractice(e, lesson, array)}>Practice</Button>
+                  <Button className="menuButton" onClick={(e) => this.handlePractice(e, lesson, array)}>Practice</Button>
+                  <Button className="menuButton" onClick={(e) => this.handlePlay(e, lesson, array)}>Play</Button>
                 </div>
               </div>
             </Collapse>
